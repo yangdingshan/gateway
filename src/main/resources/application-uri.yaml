@@ -1,0 +1,25 @@
+
+server:
+  port: 8990
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: url-proxy-1
+          uri: https://blog.csdn.net
+          predicates:
+            - Path=/csdn
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/ #Eureka Server地址
+  instance:
+    prefer-ip-address: true
+
+
+
